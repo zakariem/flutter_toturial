@@ -27,9 +27,9 @@ class _LoginState extends State<Login> {
         title: const Text('Login'),
         centerTitle: true,
       ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
+      body: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Center(
           child: Form(
             key: _formKey,
             child: Column(
@@ -44,6 +44,9 @@ class _LoginState extends State<Login> {
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Please enter your username';
+                    }
+                    if (value != 'zakarie') {
+                      return 'Please enter a valid username';
                     }
                     return null;
                   },
@@ -61,6 +64,9 @@ class _LoginState extends State<Login> {
                       return 'Please enter your password';
                     }
                     if (value.length < 6) {
+                      return 'Password must be at least 6 characters long';
+                    }
+                    if (value != '123456') {
                       return 'Password must be at least 6 characters long';
                     }
                     return null;
